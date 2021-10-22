@@ -1,0 +1,102 @@
+﻿@model ZarzadzanieUczelnia.Models.UczenSzkoly
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Uczen szkoly</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Grupa.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grupa.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Indeks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Indeks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataUrodzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataUrodzenia)
+        </dd>
+
+    </dl>
+    <h4>Otrzymane oceny</h4>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Oceny.FirstOrDefault().Przedmiot.Nazwa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oceny.FirstOrDefault().Uczen.Indeks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oceny.FirstOrDefault().OtrzymanaOcena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oceny.FirstOrDefault().Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oceny.FirstOrDefault().Komentarz)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Oceny)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Przedmiot.Nazwa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uczen.Indeks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OtrzymanaOcena)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Komentarz)
+                </td>
+               
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edycja", "Edit", new { id = Model.UzytkownikID }) |
+    @Html.ActionLink("Powrót do listy", "Index")
+</p>

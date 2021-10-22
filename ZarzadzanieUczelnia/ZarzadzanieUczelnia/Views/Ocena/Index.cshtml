@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ZarzadzanieUczelnia.Models.Ocena>
+
+@{
+    ViewBag.Title = "Index";
+}
+@using (Html.BeginForm("Index", "Ocena", FormMethod.Post))
+{
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Utwórz nowy", "Create")
+  <br />
+        @Html.DisplayName("Indeksy")
+      @Html.DropDownList("Indeksy", null, htmlAttributes: new { @class = "form-control", onchange = "this.form.submit();" }) 
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Przedmiot.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Uczen.Indeks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtrzymanaOcena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Komentarz)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Przedmiot.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uczen.Indeks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtrzymanaOcena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Komentarz)
+        </td>
+        <td>
+            @Html.ActionLink("Edycja", "Edit", new { id = item.OcenaID }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id = item.OcenaID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id = item.OcenaID })
+        </td>
+    </tr>
+}
+
+</table>
+}
+@*<script>
+  $("#Indeksy").on("change", function () {
+    $("form").submit();
+  });
+</script>*@

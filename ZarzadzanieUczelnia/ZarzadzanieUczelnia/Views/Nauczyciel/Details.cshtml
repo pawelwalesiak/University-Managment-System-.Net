@@ -1,0 +1,42 @@
+﻿@model ZarzadzanieUczelnia.Models.Nauczyciel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nauczyciel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataUrodzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataUrodzenia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edycja", "Edit", new { id = Model.UzytkownikID }) |
+    @Html.ActionLink("Powrót do listy", "Index")
+</p>
